@@ -51,6 +51,7 @@ nvim_tree.setup {
     view = {
         width = 30,
         height = 30,
+        cursorline = true,
         hide_root_folder = false,
         side = "left",
         auto_resize = true,
@@ -72,6 +73,17 @@ nvim_tree.setup {
     renderer = {
         highlight_git = true,
         root_folder_modifier = ":t",
+        indent_markers = {
+          enable = true,
+          inline_arrows = true,
+          icons = {
+            corner = "└",
+            edge = "│",
+            item = "│",
+            bottom = "─",
+            none = " ",
+          },
+        },
         icons = {
             show = {
                 file = true,
