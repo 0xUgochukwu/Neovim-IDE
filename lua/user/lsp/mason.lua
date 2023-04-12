@@ -2,10 +2,14 @@ local servers = {
 	"sumneko_lua",
 	-- "cssls",
 	-- "html",
-	-- "tsserver",
+	"tsserver",
 	"pyright",
-	-- "bashls",
+  "bashls",
 	"jsonls",
+  "intelephense",
+  "clangd",
+  "eslint",
+  "eslint_d"
 	-- "yamlls",
 }
 
@@ -33,6 +37,7 @@ if not lspconfig_status_ok then
 	return
 end
 
+
 local opts = {}
 
 for _, server in pairs(servers) do
@@ -50,3 +55,12 @@ for _, server in pairs(servers) do
 
 	lspconfig[server].setup(opts)
 end
+
+
+
+lspconfig.intelephense.setup {
+  cmd = { "intelephense", "--stdio" },
+  root_dir = lspconfig.util.root_pattern('composer.json', '.git'),
+	on_attach = require("user.lsp.handlers").on_attach,
+	capabilities = require("user.lsp.handlers").capabilities,
+}
