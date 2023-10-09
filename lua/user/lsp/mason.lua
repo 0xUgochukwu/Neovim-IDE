@@ -9,7 +9,8 @@ local servers = {
   "intelephense",
   "clangd",
   "eslint",
-  "eslint_d"
+  "eslint_d",
+  "gopls"
 	-- "yamlls",
 }
 
